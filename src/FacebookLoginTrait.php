@@ -49,7 +49,8 @@ trait FacebookLoginTrait {
                 $user = $userModel::where('email', $fbUser['email'])->first();
                 if (!$user) {
                     $user = new $userModel();
-                    $user->name = $fbUser['first_name'].' '.$fbUser['last_name'];
+                    $user->first_name = $fbUser['first_name'];
+                    $user->last_name = $fbUser['last_name'];
                     $user->username = uniqid('fb_', true); // Random username.
                     $user->email = $fbUser['email'];
                     $user->password = uniqid('fb_', true); // Random password.
