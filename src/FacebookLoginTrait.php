@@ -17,31 +17,42 @@ trait FacebookLoginTrait {
     public function loginFacebook(Request $request)
     {
         try {
-            if ($request->get('fb_token')) { // Check that a token was passed
+            /**
+             * Check if the 'fb_token' as passed.
+             */
+            if ($request->get('fb_token')) {
 
-                // Init facebook SDK
+                /**
+                 * Initialise Facebook SDK.
+                 */
                 $fb = new Facebook([
-                    'app_id' => env('FACEBOOK_APP_ID'),
-                    'app_secret' => env('FACEBOOK_APP_SECRET'),
+                    'app_id' => config('settings.facebook.app_id'),
+                    'app_secret' => config('settings.facebook.app_secret'),
                     'default_graph_version' => 'v2.5',
                 ]);
                 $fb->setDefaultAccessToken($request->get('fb_token'));
 
-                // Attempt to get the user object from Facebook
-                $response = $fb->get('/me?locale=en_AU&fields=first_name,last_name,email');
+                /**
+                 * Make the Facebook request.
+                 */
+                $response = $fb->get('/me?locale=en_GB&fields=first_name,last_name,email');
                 $fbUser = $response->getDecodedBody();
 
-                // Check that we have an existing user matching the email address
+                /**
+                 * Check if the user has already signed up.
+                 */
                 $userModel = config('auth.providers.users.model');
 
+                /**
+                 * Create a new user if they haven't already signed up.
+                 */
                 $user = $userModel::where('email', $fbUser['email'])->first();
                 if (!$user) {
-                    // User does not exist, create user automatically
                     $user = new $userModel();
-                    $user->first_name = $fbUser['first_name'];
-                    $user->last_name = $fbUser['last_name'];
+                    $user->name = $fbUser['first_name'].' '.$fbUser['last_name'];
+                    $user->username = uniqid('fb_', true); // Random username.
                     $user->email = $fbUser['email'];
-                    $user->password = uniqid('fb_', true); // We need to give them a password, generate a random one
+                    $user->password = uniqid('fb_', true); // Random password.
                     $user->save();
                 }
                 return $user;
