@@ -3,34 +3,35 @@ Provides a new Laravel Passport Grant Client named `facebook_login`, allowing yo
 
 Note: A new User **will be created** if an existing user was not found for the given token
 
-## Install
+## Installation:
+Install with composer  `composer require danjdewhurst/laravel-passport-facebook-login`
 
-Install with composer...  `composer require danjdewhurst/laravel-passport-facebook-login`
-
-### Versions
-
+### Versions:
 * Laravel 5.4 and Passport 2.0 only supported at this time
 
-## Setup
-
+## Setup:
 * Add `Danjdewhurst\PassportFacebookLogin\FacebookLoginGrantProvider::class` to your list of providers **after** `Laravel\Passport\PassportServiceProvider`.
 * Add `Danjdewhurst\PassportFacebookLogin\FacebookLoginTrait` Trait to your `User` model (or whatever model you have configured to work with Passport).
-* Add your Facebook App details to your `.env` file
-```bash
-# file .env
-FACEBOOK_APP_ID={app_id from Facebook}
-FACEBOOK_APP_SECRET={app_secret from facebook}
+* Add your Facebook App details to your `config/settings.php` file (create one if you don't already have one):
+```php
+<?php
+return [
+    'facebook' => [
+        'app_id' => env('FACEBOOK_APP_ID'),
+        'app_secret' => env('FACEBOOK_APP_SECRET'),
+    ],
+];
 ```
 
-## How to use
+## How To Use:
 
 * Make a **POST** request to `https://your-site.com/oauth/token`, just like you would a **Password** or **Refresh** grant.
 * The POST body should contain `grant_type` = `facebook_login` and `fb_token` = `{token from facebook login}`.
 * An `access_token` and `refresh_token` will be returned if successful.
 
 ## Notes:
-It is assumed that your `User` model has `first_name` and `last_name` fields.
+It is assumed that your `User` model has `name`, 'username', `email` and `password` fields.
 
-## Thanks
-This package is based off https://github.com/mikemclin/passport-custom-request-grant
-And is a fork off https://github.com/mirkco/Laravel-Passport-Facebook-Login
+## Credits:
+* https://github.com/mirkco/Laravel-Passport-Facebook-Login
+* https://github.com/mikemclin/passport-custom-request-grant
