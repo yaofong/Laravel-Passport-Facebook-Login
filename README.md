@@ -12,7 +12,8 @@ Install with composer  `composer require danjdewhurst/laravel-passport-facebook-
 ## Setup:
 * Add `Danjdewhurst\PassportFacebookLogin\FacebookLoginGrantProvider::class` to your list of providers **after** `Laravel\Passport\PassportServiceProvider`.
 * Add `Danjdewhurst\PassportFacebookLogin\FacebookLoginTrait` Trait to your `User` model (or whatever model you have configured to work with Passport).
-* Run `php artisan vendor:publish` and enter your Facebook App details in `config/facebook.php`.
+* Run `php artisan vendor:publish`, this will create a `config/facebook.php` file. More options will be added here in the future.
+* Enter your Facebook App details in your `.env` file: `FACEBOOK_APP_ID` and `FACEBOOK_APP_SECRET`.
 
 ## How To Use:
 
