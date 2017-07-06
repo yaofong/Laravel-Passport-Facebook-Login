@@ -26,8 +26,8 @@ trait FacebookLoginTrait {
                  * Initialise Facebook SDK.
                  */
                 $fb = new Facebook([
-                    'app_id' => config('settings.facebook.app_id'),
-                    'app_secret' => config('settings.facebook.app_secret'),
+                    'app_id' => config('facebook.app.id'),
+                    'app_secret' => config('facebook.app.secret'),
                     'default_graph_version' => 'v2.5',
                 ]);
                 $fb->setDefaultAccessToken($request->get('fb_token'));

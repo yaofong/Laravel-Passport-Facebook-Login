@@ -23,6 +23,13 @@ class FacebookLoginGrantProvider extends PassportServiceProvider
      */
     public function boot()
     {
+        /**
+         * Create our facebook.php configuration file.
+         */
+        $this->publishes([
+            __DIR__.'/config/facebook.php' => config_path('facebook.php'),
+        ]);
+
         app(AuthorizationServer::class)->enableGrantType($this->makeRequestGrant(), Passport::tokensExpireIn());
     }
 
