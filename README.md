@@ -22,7 +22,7 @@ Install with composer  `composer require danjdewhurst/laravel-passport-facebook-
 * An `access_token` and `refresh_token` will be returned if successful.
 
 ## Notes:
-It is assumed that your `User` model has `name`, 'username', `email` and `password` fields.
+It is assumed that your `User` model has `first_name`, `last_name`, 'username', `email` and `password` fields.
 
 ## Credits:
 * https://github.com/mirkco/Laravel-Passport-Facebook-Login
