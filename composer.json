@@ -1,5 +1,5 @@
 {
-    "name": "mirkco/laravel-passport-facebook-login",
+    "name": "danjdewhurst/laravel-passport-facebook-login",
     "description": "Facebook Token Request Grant for Laravel Passport",
     "license": "MIT",
     "keywords": ["laravel", "lumen", "passport", "oauth", "grant"],
@@ -7,6 +7,10 @@
         {
             "name": "Jacob Morris",
             "email": "jacob@mirk.co"
+        },
+        {
+            "name": "Daniel Dewhurst",
+            "email": "danjdewhurst@gmail.com"
         }
     ],
     "autoload": {
