@@ -1,6 +1,6 @@
 <?php
 
-namespace Mirk\PassportFacebookLogin;
+namespace danjdewhurst\PassportFacebookLogin;
 
 use Laravel\Passport\Bridge\RefreshTokenRepository;
 use Laravel\Passport\Bridge\UserRepository;

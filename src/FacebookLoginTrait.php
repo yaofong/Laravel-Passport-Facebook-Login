@@ -1,5 +1,5 @@
 <?php
-namespace Mirk\PassportFacebookLogin;
+namespace danjdewhurst\PassportFacebookLogin;
 
 use Facebook\Facebook;
 use Illuminate\Http\Request;

@@ -1,11 +1,11 @@
 # Laravel Passport Facebook Login
 Provides a new Laravel Passport Grant Client named `facebook_login`, allowing you to log a user in with just their Facebook Login token
 
-Note: A new User **will be created** if an existing user was not found for the given token 
+Note: A new User **will be created** if an existing user was not found for the given token
 
 ## Install
 
-Install with composer...  `composer require mirkco/laravel-passport-facebook-login`
+Install with composer...  `composer require danjdewhurst/laravel-passport-facebook-login`
 
 ### Versions
 
@@ -13,8 +13,8 @@ Install with composer...  `composer require mirkco/laravel-passport-facebook-log
 
 ## Setup
 
-* Add `Mirk\PassportFacebookLogin\FacebookLoginGrantProvider::class` to your list of providers **after** `Laravel\Passport\PassportServiceProvider`.
-* Add `Mirk\PassportFacebookLogin\FacebookLoginTrait` Trait to your `User` model (or whatever model you have configured to work with Passport).
+* Add `danjdewhurst\PassportFacebookLogin\FacebookLoginGrantProvider::class` to your list of providers **after** `Laravel\Passport\PassportServiceProvider`.
+* Add `danjdewhurst\PassportFacebookLogin\FacebookLoginTrait` Trait to your `User` model (or whatever model you have configured to work with Passport).
 * Add your Facebook App details to your `.env` file
 ```bash
 # file .env
@@ -29,7 +29,8 @@ FACEBOOK_APP_SECRET={app_secret from facebook}
 * An `access_token` and `refresh_token` will be returned if successful.
 
 ## Notes:
-It is assumed that your `User` model has `first_name` and `last_name` fields. 
+It is assumed that your `User` model has `first_name` and `last_name` fields.
 
 ## Thanks
 This package is based off https://github.com/mikemclin/passport-custom-request-grant
+And is a fork off https://github.com/mirkco/Laravel-Passport-Facebook-Login
