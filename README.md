@@ -21,8 +21,13 @@ Install with composer  `composer require danjdewhurst/laravel-passport-facebook-
 * The POST body should contain `grant_type` = `facebook_login` and `fb_token` = `{token from facebook login}`.
 * An `access_token` and `refresh_token` will be returned if successful.
 
-## Notes:
-It is assumed that your `User` model has `first_name`, `last_name`, 'username', `email` and `password` fields.
+## Assumptions:
+* Your `User` model has the folowing fields:
+* * `facebook_id`
+* * `first_name`
+* * `last_name`
+* * `email`
+* * `password`
 
 ## Credits:
 * https://github.com/mirkco/Laravel-Passport-Facebook-Login
