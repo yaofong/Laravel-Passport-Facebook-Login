@@ -1,7 +1,7 @@
 # Laravel Passport Facebook Login
-Provides a new Laravel Passport Grant Client named `facebook_login`, allowing you to log a user in with just their Facebook Login token
+Provides a new Laravel Passport Grant Client named `facebook_login`, allowing you to log a user in with just their Facebook Login token.
 
-Note: A new User **will be created** if an existing user was not found for the given token
+A new user will be created (and optionally assigned to an EnTrust role) if the email address doesn't exist.
 
 ## Installation:
 Install with composer  `composer require danjdewhurst/laravel-passport-facebook-login`
