@@ -14,6 +14,12 @@ Install with composer  `composer require danjdewhurst/laravel-passport-facebook-
 * Add `Danjdewhurst\PassportFacebookLogin\FacebookLoginTrait` Trait to your `User` model (or whatever model you have configured to work with Passport).
 * Run `php artisan vendor:publish`, this will create a `config/facebook.php` file. More options will be added here in the future.
 * Enter your Facebook App details in your `.env` file: `FACEBOOK_APP_ID` and `FACEBOOK_APP_SECRET`.
+* Optional: To automatically attach a role to new users, amend the following in the config file:
+```php
+    'registration' => [
+        'attach_role' => 1, // ID of the role
+    ],
+```
 
 ## How To Use:
 
