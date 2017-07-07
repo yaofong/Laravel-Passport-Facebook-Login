@@ -67,7 +67,7 @@ trait FacebookLoginTrait {
                 /**
                  * Generate the new user an access token.
                  */
-                $access_token = $user_model->createToken('Test')->accessToken;
+                $access_token = $userModel->createToken('Test')->accessToken;
 
                 return [
                     'success' => true,
