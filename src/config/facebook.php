@@ -7,6 +7,6 @@ return [
     ],
 
     'registration' => [
-        'attach_role' => 1,
+        'attach_role' => null,
     ],
 ];
