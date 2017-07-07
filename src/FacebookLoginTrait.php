@@ -62,17 +62,9 @@ trait FacebookLoginTrait {
                     if(!is_null(config('facebook.registration.attach_role'))) {
                         $user->attachRole(config('facebook.registration.attach_role'));
                     }
-                }
+                }                
 
-                /**
-                 * Generate the new user an access token.
-                 */
-                $access_token = $user->createToken('Test')->accessToken;
-
-                return [
-                    'success' => true,
-                    'access_token' => $access_token,
-                ];
+                return $user;
             }
         } catch (\Exception $e) {
             throw OAuthServerException::accessDenied($e->getMessage());
