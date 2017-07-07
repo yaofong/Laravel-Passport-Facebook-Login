@@ -55,8 +55,24 @@ trait FacebookLoginTrait {
                     $user->email = $fbUser['email'];
                     $user->password = uniqid('fb_', true); // Random password.
                     $user->save();
+
+                    /**
+                     * Attach a role to the user.
+                     */
+                    if(!is_null(config('facebook.registration.attach_role'))) {
+                        $user->attachRole(config('facebook.registration.attach_role'));
+                    }
                 }
-                return $user;
+
+                /**
+                 * Generate the new user an access token.
+                 */
+                $access_token = $user_model->createToken('Test')->accessToken;
+
+                return [
+                    'success' => true,
+                    'access_token' => $access_token,
+                ];
             }
         } catch (\Exception $e) {
             throw OAuthServerException::accessDenied($e->getMessage());

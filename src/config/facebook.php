@@ -5,4 +5,8 @@ return [
         'id' => env('FACEBOOK_APP_ID'),
         'secret' => env('FACEBOOK_APP_SECRET'),
     ],
+
+    'registration' => [
+        'attach_role' => 1,
+    ],
 ];
