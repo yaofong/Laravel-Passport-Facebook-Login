@@ -9,6 +9,10 @@ Install with composer  `composer require danjdewhurst/laravel-passport-facebook-
 ### Versions:
 * Laravel 5.4 and Passport 2.0 only supported at this time
 
+## Depenedencies:
+* `"laravel/passport": "^3.0"`
+* `"facebook/graph-sdk": "^5.4"`
+
 ## Setup:
 * Add `Danjdewhurst\PassportFacebookLogin\FacebookLoginGrantProvider::class` to your list of providers **after** `Laravel\Passport\PassportServiceProvider`.
 * Add `Danjdewhurst\PassportFacebookLogin\FacebookLoginTrait` Trait to your `User` model (or whatever model you have configured to work with Passport).
