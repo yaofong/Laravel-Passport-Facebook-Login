@@ -9,7 +9,7 @@ Install with composer  `composer require danjdewhurst/laravel-passport-facebook-
 ### Versions:
 * Laravel 5.4 and Passport 2.0 only supported at this time
 
-## Depenedencies:
+## Dependencies:
 * `"laravel/passport": "^3.0"`
 * `"facebook/graph-sdk": "^5.4"`
 
