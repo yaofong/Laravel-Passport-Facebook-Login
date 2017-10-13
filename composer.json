@@ -21,5 +21,12 @@
     "require": {
         "laravel/passport": "^3.0",
         "facebook/graph-sdk": "^5.4"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Danjdewhurst\\PassportFacebookLogin\\FacebookLoginGrantProvider"
+            ]
+        }
     }
 }
