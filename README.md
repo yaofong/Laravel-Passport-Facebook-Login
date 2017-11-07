@@ -1,7 +1,7 @@
 # Laravel Passport Facebook Login
 Provides a new Laravel Passport Grant Client named `facebook_login`, allowing you to log a user in with just their Facebook Login token.
 
-A new user will be created (and optionally assigned to an EnTrust role) if the email address doesn't exist.
+A new user will be created (and optionally assigned to an role - `$user->attachRole(ID)`) if the email address doesn't exist.
 
 ## Installation:
 Install with composer `composer require danjdewhurst/laravel-passport-facebook-login`
@@ -18,7 +18,7 @@ Install with composer `composer require danjdewhurst/laravel-passport-facebook-l
 * Add `Danjdewhurst\PassportFacebookLogin\FacebookLoginTrait` Trait to your `User` model (or whatever model you have configured to work with Passport).
 * Run `php artisan vendor:publish`, this will create a `config/facebook.php` file. More options will be added here in the future.
 * Enter your Facebook App details in your `.env` file: `FACEBOOK_APP_ID` and `FACEBOOK_APP_SECRET`.
-* Optional: To automatically attach a role (https://github.com/spatie/laravel-permission) to new users, amend the following in the config file:
+* Optional: To automatically attach a role (https://github.com/Zizaco/entrust) to new users, amend the following in the config file:
 ```php
     'registration' => [
         'attach_role' => 1, // ID of the role
