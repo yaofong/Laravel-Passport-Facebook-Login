@@ -14,16 +14,12 @@ Install with composer `composer require danjdewhurst/laravel-passport-facebook-l
 * `"facebook/graph-sdk": "^5.6"`
 
 ## Setup:
-### Laravel 5.5+
-Laravel uses auto-discovery.
-
-### Laravel 5.4 or lower
-Add `Danjdewhurst\PassportFacebookLogin\FacebookLoginGrantProvider::class` to your list of providers **after** `Laravel\Passport\PassportServiceProvider`.
+Using Laravel 5.4 or below? add `Danjdewhurst\PassportFacebookLogin\FacebookLoginGrantProvider::class` to your list of providers **after** `Laravel\Passport\PassportServiceProvider`. Laravel 5.5 uses auto-discovery, so manual service registration is no longer required.
 
 * Add `Danjdewhurst\PassportFacebookLogin\FacebookLoginTrait` Trait to your `User` model (or whatever model you have configured to work with Passport).
 * Run `php artisan vendor:publish`, this will create a `config/facebook.php` file. More options will be added here in the future.
 * Enter your Facebook App details in your `.env` file: `FACEBOOK_APP_ID` and `FACEBOOK_APP_SECRET`.
-* Optional: To automatically attach a role to new users, amend the following in the config file:
+* Optional: To automatically attach a role (https://github.com/spatie/laravel-permission) to new users, amend the following in the config file:
 ```php
     'registration' => [
         'attach_role' => 1, // ID of the role
