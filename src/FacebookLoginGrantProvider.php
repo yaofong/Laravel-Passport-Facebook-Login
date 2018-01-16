@@ -30,7 +30,7 @@ class FacebookLoginGrantProvider extends PassportServiceProvider
             __DIR__.'/config/facebook.php' => config_path('facebook.php'),
         ]);
 
-        if (file_exists(__DIR__ . '/../../../../storage/oauth-private.key')) {
+        if (file_exists(storage_path('oauth-private.key'))) {
             app(AuthorizationServer::class)->enableGrantType($this->makeRequestGrant(), Passport::tokensExpireIn());
         }
     }

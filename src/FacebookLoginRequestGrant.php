@@ -22,11 +22,10 @@ class FacebookLoginRequestGrant extends AbstractGrant
     public function __construct(
         UserRepositoryInterface $userRepository,
         RefreshTokenRepositoryInterface $refreshTokenRepository
-    )
-    {
+    ) {
         $this->setUserRepository($userRepository);
         $this->setRefreshTokenRepository($refreshTokenRepository);
-        $this->refreshTokenTTL = new \DateInterval('P1M');
+        $this->refreshTokenTTL = Passport::refreshTokensExpireIn();
     }
 
     /**
@@ -36,8 +35,7 @@ class FacebookLoginRequestGrant extends AbstractGrant
         ServerRequestInterface $request,
         ResponseTypeInterface $responseType,
         \DateInterval $accessTokenTTL
-    )
-    {
+    ) {
         // Validate request
         $client = $this->validateClient($request);
         $scopes = $this->validateScopes($this->getRequestParameter('scope', $request));
