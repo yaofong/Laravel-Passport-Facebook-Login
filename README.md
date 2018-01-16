@@ -38,8 +38,7 @@ Install with composer `composer require danjdewhurst/laravel-passport-facebook-l
 ## Assumptions:
 * Your `User` model has the folowing fields:
 * * `facebook_id`
-* * `first_name`
-* * `last_name`
+* * `name` or `first_name` & `last_name`
 * * `email`
 * * `password`
 
