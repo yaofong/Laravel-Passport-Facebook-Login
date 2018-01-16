@@ -71,7 +71,7 @@ trait FacebookLoginTrait
                     }
 
                     $user->{$email_column}    = $fbUser['email'];
-                    $user->{$password_column} = uniqid('fb_', true); // Random password.
+                    $user->{$password_column} = mcrypt(uniqid('fb_', true)); // Random password.
                     $user->save();
 
                     /**
