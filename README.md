@@ -16,12 +16,44 @@ Install with composer `composer require danjdewhurst/laravel-passport-facebook-l
 ## Setup:
 * ***Using Laravel 5.4 or below?*** add `Danjdewhurst\PassportFacebookLogin\FacebookLoginGrantProvider::class` to your list of providers **after** `Laravel\Passport\PassportServiceProvider`. Laravel 5.5 uses auto-discovery, so manual service registration is no longer required.
 * Add `Danjdewhurst\PassportFacebookLogin\FacebookLoginTrait` Trait to your `User` model (or whatever model you have configured to work with Passport).
-* Run `php artisan vendor:publish`, this will create a `config/facebook.php` file. More options will be added here in the future.
+* Run `php artisan vendor:publish`, this will create a `config/facebook.php` file.
 * Enter your Facebook App details in your `.env` file: `FACEBOOK_APP_ID` and `FACEBOOK_APP_SECRET`.
-* Optional: To automatically attach a role (https://github.com/Zizaco/entrust) to new users, amend the following in the config file:
+* Optional: To automatically attach a role (https://github.com/Zizaco/entrust) to new users, use the 'ATTACH_ROLE' env setting.
+
+**Config:**
 ```php
+    /*
+    |--------------------------------------------------------------------------
+    | Application
+    |--------------------------------------------------------------------------
+    |
+    | The facebook ID and secret from the developer's page
+    |
+    */
+
+    'app' => [
+        'id' => env('FACEBOOK_APP_ID'),
+        'secret' => env('FACEBOOK_APP_SECRET'),
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Registration Fields
+    |--------------------------------------------------------------------------
+    |
+    | The name of the fields on the user model that need to be updated,
+    | if null, they shall not be updated. (valid for name, first_name, last_name)
+    |
+    */
+
     'registration' => [
-        'attach_role' => 1, // ID of the role
+        'facebook_id' => env('FACEBOOK_ID_COLUMN', 'facebook_id'),
+        'email'       => env('EMAIL_COLUMN', 'email'),
+        'password'    => env('PASSWORD_COLUMN', 'password'),
+        'first_name'  => env('FIRST_NAME_COLUMN', 'first_name'),
+        'last_name'   => env('LAST_NAME_COLUMN', 'last_name'),
+        'name'        => env('NAME_COLUMN', 'name'),
+        'attach_role' => env('ATTACH_ROLE', null),
     ],
 ```
 
