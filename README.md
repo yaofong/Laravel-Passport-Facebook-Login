@@ -10,8 +10,8 @@ Install with composer `composer require danjdewhurst/laravel-passport-facebook-l
 * Laravel 5.5 and Passport 4.0 only supported at this time
 
 ## Dependencies:
-* `"laravel/passport": "^4.0"`
-* `"facebook/graph-sdk": "^5.6"`
+* `"laravel/passport": "~5.0"`
+* `"facebook/graph-sdk": "~5.6"`
 
 ## Setup:
 * ***Using Laravel 5.4 or below?*** add `Danjdewhurst\PassportFacebookLogin\FacebookLoginGrantProvider::class` to your list of providers **after** `Laravel\Passport\PassportServiceProvider`. Laravel 5.5 uses auto-discovery, so manual service registration is no longer required.
