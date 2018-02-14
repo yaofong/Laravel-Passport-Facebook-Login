@@ -4,10 +4,10 @@ Provides a new Laravel Passport Grant Client named `facebook_login`, allowing yo
 A new user will be created (and optionally assigned to an role - `$user->attachRole(ID)`) if the email address doesn't exist.
 
 ## Installation:
-Install with composer `composer require danjdewhurst/laravel-passport-facebook-login`
+Install with composer `composer require danjdewhurst/laravel-passport-facebook-login`. Use major version 1 for Passport 4 and below Laravel 5.6 compatibility.
 
 ### Versions:
-* Laravel 5.5 and Passport 4.0 only supported at this time
+* Laravel 5.6 and Passport 4.0 only supported at this time
 
 ## Dependencies:
 * `"laravel/passport": "~5.0"`
