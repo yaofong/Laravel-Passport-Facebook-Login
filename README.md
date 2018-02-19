@@ -7,14 +7,14 @@ A new user will be created (and optionally assigned to an role - `$user->attachR
 Install with composer `composer require danjdewhurst/laravel-passport-facebook-login`. Use major version 1 for Passport 4 and below Laravel 5.6 compatibility.
 
 ### Versions:
-* Laravel 5.6 and Passport 4.0 only supported at this time
+* Laravel 5.6 and Passport 5.0 only supported at this time
 
 ## Dependencies:
 * `"laravel/passport": "~5.0"`
 * `"facebook/graph-sdk": "~5.6"`
 
 ## Setup:
-* ***Using Laravel 5.4 or below?*** add `Danjdewhurst\PassportFacebookLogin\FacebookLoginGrantProvider::class` to your list of providers **after** `Laravel\Passport\PassportServiceProvider`. Laravel 5.5 uses auto-discovery, so manual service registration is no longer required.
+* Add `Danjdewhurst\PassportFacebookLogin\FacebookLoginGrantProvider::class` to your list of providers **after** `Laravel\Passport\PassportServiceProvider`.
 * Add `Danjdewhurst\PassportFacebookLogin\FacebookLoginTrait` Trait to your `User` model (or whatever model you have configured to work with Passport).
 * Run `php artisan vendor:publish`, this will create a `config/facebook.php` file.
 * Enter your Facebook App details in your `.env` file: `FACEBOOK_APP_ID` and `FACEBOOK_APP_SECRET`.
@@ -73,6 +73,15 @@ Install with composer `composer require danjdewhurst/laravel-passport-facebook-l
 * * `name` or `first_name` & `last_name`
 * * `email`
 * * `password`
+
+## Why not use Laravel 5.5's auto-discovery?
+
+We have found that using auto discovery can cause issues as this package relies on Laravel Passport been loaded
+before this package. Sometimes this doesn't happen, and caused issues as Laravel Passport sets up a singleton
+we reference.
+
+We hope that one day there will be a fix to Laravel auto-discovery that will allow for dependencies to be
+handled better.
 
 ## Credits:
 * https://github.com/mirkco/Laravel-Passport-Facebook-Login
