@@ -1,6 +1,6 @@
 {
-    "name": "danjdewhurst/laravel-passport-facebook-login",
-    "description": "Facebook Token Request Grant for Laravel Passport",
+    "name": "yaofong/laravel-passport-facebook-login",
+    "description": "Facebook Token Request Grant for Laravel Passport. Generate random username",
     "license": "MIT",
     "keywords": ["laravel", "lumen", "passport", "oauth", "grant"],
     "authors": [
@@ -11,11 +11,15 @@
         {
             "name": "Daniel Dewhurst",
             "email": "danjdewhurst@gmail.com"
+        },
+        {
+            "name": "Chow Yao Fong",
+            "email": "yaofong@artisan.com.my"
         }
     ],
     "autoload": {
         "psr-4": {
-            "Danjdewhurst\\PassportFacebookLogin\\": "src"
+            "ArtisanMY\\PassportFacebookLogin\\": "src"
         }
     },
     "require": {

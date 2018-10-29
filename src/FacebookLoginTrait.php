@@ -49,6 +49,7 @@ trait FacebookLoginTrait
                  */
                 $facebook_id_column = config('facebook.registration.facebook_id', 'facebook_id');
                 $name_column        = config('facebook.registration.name', 'name');
+                $username_column    = config('facebook.registration.username', 'username');
                 $first_name_column  = config('facebook.registration.first_name', 'first_name');
                 $last_name_column   = config('facebook.registration.last_name', 'last_name');
                 $email_column       = config('facebook.registration.email', 'email');
@@ -59,7 +60,9 @@ trait FacebookLoginTrait
                 if (!$user) {
                     $user = new $userModel();
                     $user->{$facebook_id_column} = $fbUser['id'];
-
+                    if ($username_column) {
+                        $user->{$username_column} = $fbUser['first_name']."_".$fbUser['last_name'];
+                    }
                     if ($first_name_column) {
                         $user->{$first_name_column} = $fbUser['first_name'];
                     }
