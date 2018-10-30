@@ -56,25 +56,30 @@ trait FacebookLoginTrait
                 $password_column    = config('facebook.registration.password', 'password');
 
                 $user = $userModel::where($facebook_id_column, $fbUser['id'])->first();
+                $email = $userModel::where($email_column, $fbUser['email'])->first();
 
                 if (!$user) {
-                    $user = new $userModel();
-                    $user->{$facebook_id_column} = $fbUser['id'];
-                    if ($username_column) {
-                        $user->{$username_column} = $fbUser['first_name']."_".$fbUser['last_name'];
-                    }
-                    if ($first_name_column) {
-                        $user->{$first_name_column} = $fbUser['first_name'];
-                    }
-                    if ($last_name_column) {
-                        $user->{$last_name_column} = $fbUser['last_name'];
-                    }
-                    if ($name_column) {
-                        $user->{$name_column} = $fbUser['first_name'] . ' ' . $fbUser['last_name'];
-                    }
+                    if($email){
+                        $user->{$facebook_id_column} = $fbUser['id'];
+                    }else{
+                        $user = new $userModel();
+                        $user->{$facebook_id_column} = $fbUser['id'];
+                        if ($username_column) {
+                            $user->{$username_column} = $fbUser['first_name']."_".$fbUser['last_name'];
+                        }
+                        if ($first_name_column) {
+                            $user->{$first_name_column} = $fbUser['first_name'];
+                        }
+                        if ($last_name_column) {
+                            $user->{$last_name_column} = $fbUser['last_name'];
+                        }
+                        if ($name_column) {
+                            $user->{$name_column} = $fbUser['first_name'] . ' ' . $fbUser['last_name'];
+                        }
 
-                    $user->{$email_column}    = $fbUser['email'];
-                    $user->{$password_column} = bcrypt(uniqid('fb_', true)); // Random password.
+                        $user->{$email_column}    = $fbUser['email'];
+                        $user->{$password_column} = bcrypt(uniqid('fb_', true)); // Random password.
+                    }
                     $user->save();
 
                     /**
@@ -84,6 +89,8 @@ trait FacebookLoginTrait
                         $user->attachRole(config('facebook.registration.attach_role'));
                     }
                 }
+
+                
 
                 return $user;
             }
