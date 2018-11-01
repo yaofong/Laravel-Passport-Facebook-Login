@@ -75,7 +75,7 @@ trait FacebookLoginTrait
                         if ($name_column) {
                             $user->{$name_column} = str_slug($fbUser['first_name'] . ' ' . $fbUser['last_name'].' '.str_random(4));
                         }
-                        $user->verified = 1;
+                        $user->email_verified_at = date("Y-m-d H:i:s");
                         $user->fb_first_login = 1;
 
                         $user->{$email_column}    = $fbUser['email'];
