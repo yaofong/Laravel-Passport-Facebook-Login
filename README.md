@@ -7,11 +7,11 @@ A new user will be created (and optionally assigned to an role - `$user->attachR
 Install with composer `composer require danjdewhurst/laravel-passport-facebook-login`. Use major version 1 for Passport 4 and below Laravel 5.6 compatibility.
 
 ### Versions:
-* Laravel 5.6 and Passport 5.0 only supported at this time
+* Laravel 5.7, with Passport 5, 6 or 7.
 
 ## Dependencies:
-* `"laravel/passport": "~5.0"`
-* `"facebook/graph-sdk": "~5.6"`
+* [laravel/passport](https://github.com/laravel/passport): `5.0||6.0||7.0`
+* [facebook/php-graph-sdk](https://github.com/facebook/php-graph-sdk): `5.6`
 
 ## Setup:
 * Add `Danjdewhurst\PassportFacebookLogin\FacebookLoginGrantProvider::class` to your list of providers **after** `Laravel\Passport\PassportServiceProvider`.
