@@ -1,6 +1,6 @@
 <?php
 
-namespace Danjdewhurst\PassportFacebookLogin;
+namespace Yaofong\PassportFacebookLogin;
 
 use Illuminate\Http\Request;
 use Laravel\Passport\Bridge\User;

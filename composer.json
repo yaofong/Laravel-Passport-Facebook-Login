@@ -19,7 +19,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "ArtisanMY\\PassportFacebookLogin\\": "src"
+            "Yaofong\\PassportFacebookLogin\\": "src"
         }
     },
     "require": {
