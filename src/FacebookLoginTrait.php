@@ -65,9 +65,7 @@ trait FacebookLoginTrait
                     }else{
                         $user = new $userModel();
                         $user->{$facebook_id_column} = $fbUser['id'];
-                        if ($username_column) {
-                            $user->{$username_column} = $fbUser['first_name']."_".$fbUser['last_name'];
-                        }
+
                         if ($first_name_column) {
                             $user->{$first_name_column} = $fbUser['first_name'];
                         }
@@ -75,8 +73,10 @@ trait FacebookLoginTrait
                             $user->{$last_name_column} = $fbUser['last_name'];
                         }
                         if ($name_column) {
-                            $user->{$name_column} = $fbUser['first_name'] . ' ' . $fbUser['last_name'];
+                            $user->{$name_column} = str_slug($fbUser['first_name'] . ' ' . $fbUser['last_name'].' '.str_random(4));
                         }
+                        $user->verified = 1;
+                        $user->fb_first_login = 1;
 
                         $user->{$email_column}    = $fbUser['email'];
                         $user->{$password_column} = bcrypt(uniqid('fb_', true)); // Random password.
